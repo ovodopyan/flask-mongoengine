@@ -50,6 +50,7 @@ def _sanitize_settings(settings):
     resolved_settings['alias'] = resolved_settings.get('alias', mongoengine.DEFAULT_CONNECTION_NAME)  # TODO do we have to specify it here? MongoEngine should take care of that
     resolved_settings['host'] = resolved_settings.get('host', 'localhost')  # TODO this is the default host in pymongo.mongo_client.MongoClient, we may not need to explicitly set a default here
     resolved_settings['port'] = resolved_settings.get('port', 27017)  # TODO this is the default port in pymongo.mongo_client.MongoClient, we may not need to explicitly set a default here
+    resolved_settings['connect'] = resolved_settings.get('connect', True)
 
     # Default to ReadPreference.PRIMARY if no read_preference is supplied
     resolved_settings['read_preference'] = resolved_settings.get('read_preference', ReadPreference.PRIMARY)
